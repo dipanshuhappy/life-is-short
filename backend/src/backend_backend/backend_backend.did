@@ -1,0 +1,10 @@
+type Links = record {
+  user: principal;
+  link: text;
+};
+
+service : {
+  getLink:  (nat) -> (opt text) query;
+
+  insert: (nat, Links) -> (opt Links);
+}
