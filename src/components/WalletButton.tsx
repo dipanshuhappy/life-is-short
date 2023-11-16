@@ -17,7 +17,7 @@ function WalletButton() {
         const actor: any = await holdIC.getActor('backend_backend')
         console.log({ actor })
         const a = await actor?.getLink(BigInt(1234));
-        console.log({ a })
+        console.log("wrgrmfeergouegn",{ a })
     }
     const [link, setLink] = useState("")
     const [longLink, setLongLink] = useState("")
@@ -34,6 +34,7 @@ function WalletButton() {
             user: prinicple
         })
         alert("Done url shorten")
+        
 
         console.log({ result })
 

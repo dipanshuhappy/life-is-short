@@ -18,8 +18,6 @@ const colors = {
 const theme = extendTheme({ colors })
 export default function App({ Component, pageProps }: AppProps) {
   const { isConnected } = useHoldIc()
-
-
   console.log({ isConnected }, "is connected")
 
   return (<ChakraProvider theme={theme}>
