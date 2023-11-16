@@ -33,8 +33,14 @@ function WalletButton() {
             link: longLink,
             user: prinicple
         })
-        alert("Done url shorten")
-        
+        setLoading(false);
+        toast({
+            title: 'Completed',
+            description: "Ready to use...",
+            status: 'success',
+            duration: 9000,
+            isClosable: true,
+          });
 
         console.log({ result })
 
