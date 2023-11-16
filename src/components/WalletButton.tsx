@@ -1,4 +1,4 @@
-import { Button, Input, InputGroup, InputLeftAddon, InputRightElement, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, VStack, useDisclosure } from '@chakra-ui/react';
+import { Button, Input, InputGroup, InputLeftAddon, InputRightElement, Link, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, VStack, useDisclosure } from '@chakra-ui/react';
 import { useState } from 'react';
 import { useHoldIc } from "@hold-ic/react"
 import { md5 } from 'js-md5';
@@ -8,11 +8,12 @@ function WalletButton() {
     const { holdIC, isConnected } = useHoldIc()
     const { isOpen, onOpen, onClose } = useDisclosure()
     const [loading, setLoading] = useState(false);
+    const [shortenedUrl, setShortenedUrl] = useState("");
     console.log({ isConnected })
     const toast = useToast();
     const connectActor = async () => {
         const print = await holdIC?.getPrinicpal()
-        console.log("nvfnivenivubekbr",{ print })
+        console.log({ print })
         // backend_backend.insert(BigInt(1234), {
         //     link: "https://www.google.com",
         //     user: print ?? new principalIdFromHex("")
@@ -45,6 +46,9 @@ function WalletButton() {
             duration: 9000,
             isClosable: true,
           });
+
+        const _shortenedUrl = `https://life-is-short-iota.vercel.app/${link}`;
+        setShortenedUrl(_shortenedUrl);
 
         console.log({ result })
 
@@ -122,6 +126,7 @@ function WalletButton() {
                             </Button>
                         </InputRightElement>
                     </InputGroup>
+                    {shortenedUrl && <Link isExternal href={shortenedUrl}>{shortenedUrl}</Link>}
 
                 </VStack> : <></>
             }
